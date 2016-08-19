@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  targetselector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["--group", "nested1group"]
+    environment:
+      - PASSWORD
+    volumes:
+      - ./config:/src/config
+    extra_hosts:
+      - "ad1.mslablgs.vm.obm-int.dc1:172.16.24.101"

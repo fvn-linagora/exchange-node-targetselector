@@ -1,0 +1,23 @@
+{
+  "name": "node-targets-selector",
+  "version": "0.0.0",
+  "description": "query remote domain's Active Directory users",
+  "main": "index.js",
+  "dependencies": {
+    "activedirectory": "^0.7.2",
+    "commander": "^2.9.0",
+    "json2csv": "^3.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "AD",
+    "LDAP",
+    "test"
+  ],
+  "author": "Fabien",
+  "license": "ISC"
+}
