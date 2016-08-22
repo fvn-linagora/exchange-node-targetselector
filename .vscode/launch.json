@@ -7,7 +7,7 @@
             "request": "launch",
             "program": "${workspaceRoot}/index.js",
             "stopOnEntry": false,
-            "args": [],
+            "args": ["-g", "nested1group", "-u", "ldap://AD1.mslablgs.vm.obm-int.dc1", "-d", "DC=mslablgs,DC=vm,DC=obm-int,DC=dc1"],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
             "runtimeExecutable": null,
@@ -15,7 +15,8 @@
                 "--nolazy"
             ],
             "env": {
-                "NODE_ENV": "development"
+                "NODE_ENV": "development",
+                "PASSWORD": "******"
             },
             "externalConsole": false,
             "sourceMaps": false,

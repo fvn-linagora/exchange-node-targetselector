@@ -11,10 +11,11 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisities
 
-You'll need to install:
-- Node (>= 6.0) for ES6
 - Docker daemon (>= 1.10)
-- Docker Compose (>= v1.8)
+- (OPTIONAL) Docker Compose (>= v1.8)
+
+For contributing purpose, you'll need to also install :
+- Node (>= 6.0) for ES6
 
 ### Installing
 
