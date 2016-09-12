@@ -5,10 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["--group", "nested1group"]
+    command: ["--group", "nested1group", "-u", "ldap://AD1.mslablgs.vm.obm-int.dc1", "-d", "DC=mslablgs,DC=vm,DC=obm-int,DC=dc1"]
     environment:
       - PASSWORD
-    volumes:
-      - ./config:/src/config
+#    volumes:
+#      - ./config:/src/config
     extra_hosts:
       - "ad1.mslablgs.vm.obm-int.dc1:172.16.24.101"

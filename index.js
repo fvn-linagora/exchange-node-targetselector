@@ -3,6 +3,10 @@ const json2csv = require('json2csv');
 const program = require('commander');
 const authConfig = require('./credentialConfig');
 const NB_REQUIRED_ARGS = 7;
+const CSV_FIELDS_MAP = new Map([
+  ['dn', 'DistinguishedName'],
+  ['mail', 'PrimarySmtpAddress']]
+);
 
 program.on('--help', function() {
   console.log([
@@ -71,17 +75,19 @@ function getUsersForGroup(groupName) {
     });
 }
 
-function dumpUsersPropsAsCSV(fields) {
+function dumpUsersPropsAsCSV(fieldsMap) {
   return users => new Promise(function (resolve, reject) {
     if (users)
-      resolve(json2csv({ data: users, fields: fields }));
+      resolve(json2csv({ data: users,
+        fields: [...fieldsMap.keys()],
+        fieldNames: [...fieldsMap.values()] }));
     else
       reject(`Group: ${groupName} not found`);
   });
 }
 
 getUsersForGroup(groupName)()
-  .then(dumpUsersPropsAsCSV(['dn', 'mail']))
+  .then(dumpUsersPropsAsCSV(CSV_FIELDS_MAP))
   .then(console.log)
   .catch(err => console.log('ERROR ' + JSON.stringify(err)))
   ;
