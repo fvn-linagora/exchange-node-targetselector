@@ -5,8 +5,8 @@ const authConfig = require('./credentialConfig');
 const NB_REQUIRED_ARGS = 7;
 const CSV_FIELDS_MAP = new Map([
   ['dn', 'DistinguishedName'],
-  ['userPrincipalName', 'PrimarySmtpAddress'],
-  ['mail', 'EmailAddresses']]
+  ['userPrincipalName', 'EmailAddresses'],
+  ['mail', 'PrimarySmtpAddress']]
 );
 
 program.on('--help', function() {
