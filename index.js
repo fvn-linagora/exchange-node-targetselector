@@ -33,7 +33,7 @@ function validateArguments(program) {
   if (!program.ldapEndpoint) {
     throw new Error('No LDAP endpoint provided. Please provide server Uri !');
   }
-  if (program.ldapEndpoint && !(/^ldap:\/\//).test(program.ldapEndpoint)) {
+  if (program.ldapEndpoint && !(/^ldaps?:\/\//).test(program.ldapEndpoint)) {
     throw new Error('LDAP endpoint uri provided is not valid !!');
   }
   if (!program.baseDn) {
@@ -57,6 +57,8 @@ function buildCallback(resolve, reject) {
 function buildDirectoryConfig(program, authConfig) {
   const serverConfig = {
     url: program.ldapEndpoint,
+    secure: /^ldaps/.test(program.ldapEndpoint),
+    tlsOptions: { 'rejectUnauthorized': false },
     baseDN: program.baseDn
   };
   if (! authConfig.password) {

@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["--group", "nested1group", "-u", "ldap://AD1.mslablgs.vm.obm-int.dc1", "-d", "DC=mslablgs,DC=vm,DC=obm-int,DC=dc1"]
+    command: ["--group", "nested1group", "-u", "ldaps://AD1.mslablgs.vm.obm-int.dc1:636", "-d", "DC=mslablgs,DC=vm,DC=obm-int,DC=dc1"]
     environment:
       - PASSWORD
 #    volumes:
